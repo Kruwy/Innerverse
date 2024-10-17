@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innerverse - App de Psicologia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Festive&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+  <style>
+    /* Estilo geral da página */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f1E8; /* Tom de bege claro */
+      color: #444;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho com imagem de fundo e GIF */
+    .header {
+      background: url('onda.gif') no-repeat center center;
+      background-size: cover;
+      height: 300px;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    /* Sobreposição para visibilidade */
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(247, 241, 232, 0.5); /* Transparência */
+      z-index: 1;
+    }
+
+    /* Estilo do título e subtítulo */
+    .header h1, .header p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .header h1 {
+      font-family: "Playwrite GB S", cursive;
+      font-size: 4.5rem; /* Tamanho aumentado ainda mais */
+      margin: 0;
+      color: #6b5841; /* Tom café */
+      text-align: center;
+    }
+
+    .header p {
+      font-size: 1.4rem; /* Tamanho do subtítulo */
+      margin-top: 10px;
+      color: #8a7e72; /* Tom pastel suave */
+    }
+
+    /* Distribuição de conteúdo */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 30px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    /* Estilo dos cartões */
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-5px); /* Elevação ao hover */
+    }
+
+    /* Estilo dos títulos dos cartões */
+    .card h2 {
+      font-size: 1.6rem;
+      color: #6b5841; /* Tom café */
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #444; /* Texto em cor escura */
+      flex-grow: 1;
+    }
+
+    /* Estilo dos botões */
+    button {
+      background-color: #8a7e72; /* Tom pastel de café suave */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      align-self: flex-end;
+    }
+
+    button:hover {
+      background-color: #6b5841;
+      transform: scale(1.05);
+    }
+
+    /* Rodapé fixo */
+    .footer {
+      background-color: #8a7e72;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .footer .psychologists {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    /* Ajuste para telas menores */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+
+    /* Seção de ética e RGPD */
+    .rgpd {
+      background-color: #f0e9e3;
+      padding: 30px;
+      margin-bottom: 120px;
+      margin-left:auto; margin-right: auto;
+      border-radius: 10px;
+      max-width: 1200px;
+      color: #444;
+    }
+
+    .rgpd h2 {
+      color: #6b5841;
+      margin-bottom: 15px;
+    }
+
+    .rgpd p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho com GIF e imagem de fundo -->
+  <div class="header">
+    <h1>Innerverse</h1>
+    <p>Explore o seu universo interior</p>
+  </div>
+
+  <!-- Container dos cartões -->
+  <div class="container">
+    <!-- Cartão 1: Terapia em Grupo -->
+    <div class="card">
+      <h2>Terapia em Grupo</h2>
+      <p>Participe de sessões de terapia em grupo com outras pessoas que compartilham experiências semelhantes.</p>
+      <button>Agendar Sessão</button>
+    </div>
+
+    <!-- Cartão 2: Consulta com AI -->
+    <div class="card">
+      <h2>Consulta com AI</h2>
+      <p>Converse com nosso assistente AI para obter aconselhamento rápido e suporte emocional em tempo real.</p>
+      <button>Iniciar Consulta com AI</button>
+    </div>
+
+    <!-- Cartão 3: Consulta com Psicólogo -->
+    <div class="card">
+      <h2>Consulta com Psicólogo</h2>
+      <p>Conecte-se com psicólogos licenciados para consultas individuais online.</p>
+      <button>Agendar Consulta</button>
+    </div>
+
+    <!-- Cartão 4: Exercícios de Mindfulness -->
+    <div class="card">
+      <h2>Exercícios de Mindfulness</h2>
+      <p>Pratique técnicas de relaxamento guiadas para melhorar seu bem-estar.</p>
+      <button>Começar Agora</button>
+    </div>
+
+    <!-- Cartão 5: Diário -->
+    <div class="card">
+      <h2>Diário</h2>
+      <p>Mantenha um diário digital seguro para expressar seus pensamentos, sentimentos e reflexões diárias. O hábito de escrever pode ajudar a processar emoções e melhorar a clareza mental.</p>
+      <button>Escrever no Diário</button>
+    </div>
+
+    <!-- Cartão 6: Como me sinto hoje -->
+    <div class="card">
+      <h2>Como me sinto hoje</h2>
+      <p>Utilize esta ferramenta para registar rapidamente o seu estado emocional atual. Acompanhar como se sente ao longo do tempo pode ajudar a identificar padrões e temas na sua saúde mental.</p>
+      <button>Registar Sentimentos</button>
+    </div>
+  </div>
+
+  <!-- Seção de ética e RGPD -->
+  <div class="rgpd">
+    <h2>Ética e Proteção de Dados (RGPD)</h2>
+    <p>Na Innerverse, a sua privacidade e segurança são nossas prioridades. Todos os dados pessoais e conversas realizadas na plataforma são protegidos de acordo com o Regulamento Geral de Proteção de Dados (RGPD). Seguimos as diretrizes da <strong>Ordem dos Psicólogos Portugueses (OPP)</strong> para garantir que os princípios éticos e profissionais sejam rigorosamente aplicados nas nossas práticas.</p>
+  </br>
+  </div>
+ 
+  <!-- Rodapé fixo -->
+  <div class="footer">
+    <p class="psychologists">Psicólogas Disponíveis: Ana Neves, Andrea Pinto, Daniela Carvalho, Renata Monteiro</p>
+    <p>&copy; 2024 Innerverse. Todos os direitos reservados.</p>
+  </div>
+
+</body>
+</html>
