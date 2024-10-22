@@ -8,6 +8,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Festive&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
   <style>
+
+    /* Estilo do botão de logout */
+    .logout-btn {
+      background-color: #8a7e72; /* Cor do botão */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 20px;
+      z-index: 999;
+    }
+
+    .logout-btn:hover {
+      background-color: #6b5841; /* Cor ao passar o mouse */
+      transform: scale(1.05);
+    }
+
     /* Estilo geral da página */
     body {
       font-family: 'Roboto', sans-serif;
@@ -121,24 +139,6 @@
       transform: scale(1.05);
     }
 
-    /* Botão de Logout */
-    .logout-button {
-      background-color: #e74c3c; /* Cor vermelha */
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 1rem;
-      margin: 20px auto;
-      display: block;
-      width: 200px; /* Largura fixa */
-      transition: background-color 0.3s;
-    }
-
-    .logout-button:hover {
-      background-color: #c0392b; /* Tom mais escuro para o hover */
-    }
     /* Rodapé fixo */
     .footer {
       background-color: #8a7e72;
@@ -187,26 +187,32 @@
     .rgpd p {
       margin: 5px 0;
     }
-  </style>
-    <script>
-    // Verifica se o usuário está autenticado
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
-    if (!isAuthenticated) {
-      // Redireciona para a página de login se não estiver autenticado
-      window.location.href = 'login.html';
-    }
 
-    // Função para fazer logout
-    function logout() {
-      localStorage.removeItem('isAuthenticated'); // Remove o estado de autenticação
-      window.location.href = 'login.html'; // Redireciona para a página de login
-    }
-  </script>
+  </style>
+  <body>
+    
   <!-- Cabeçalho com GIF e imagem de fundo -->
   <div class="header">
     <h1>Innerverse</h1>
     <p>Explore o seu universo interior</p>
+    <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
+
+  <script>
+    // Verifica se o usuário está autenticado
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    if (!isAuthenticated) {
+      window.location.href = 'login.html'; // Redireciona para a página de login
+    }
+  </script>
+
+  <script>
+  // Função de logout que remove o status de autenticação e redireciona para login.html
+  function logout() {
+    localStorage.removeItem('isAuthenticated'); // Remove o estado de autenticação
+    window.location.href = 'login.html'; // Redireciona para a página de login
+  }
+  </script>
 
   <!-- Container dos cartões -->
   <div class="container">
