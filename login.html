@@ -87,8 +87,8 @@
       e.preventDefault(); // Impede o envio do formulário
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-      
-      // Verifica credenciais (aqui você pode mudar para suas próprias credenciais)
+
+      // Verifica credenciais (neste exemplo, mudamos para credenciais simples)
       if (username === 'admin' && password === 'password') {
         localStorage.setItem('isAuthenticated', 'true'); // Define o estado de autenticação
         alert('Login bem-sucedido!'); // Exibe mensagem de sucesso
