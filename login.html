@@ -4,66 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Innerverse</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Festive&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Estilo geral da página */
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #f7f1E8; /* Tom de bege claro */
-      color: #444;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      height: 100vh; /* Altura total da tela */
     }
 
+    /* Container do formulário */
     .login-container {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      padding: 30px;
-      width: 300px;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+      width: 90%; /* Largura responsiva */
+      max-width: 400px; /* Largura máxima para desktops */
       text-align: center;
     }
 
     h1 {
-      font-size: 2rem;
       margin-bottom: 20px;
       color: #6b5841; /* Tom café */
     }
 
-    input[type="text"], input[type="password"] {
-      width: 100%;
+    /* Estilo dos campos do formulário */
+    input[type="text"],
+    input[type="password"] {
+      width: 100%; /* Largura total do container */
       padding: 10px;
       margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-sizing: border-box; /* Inclui padding e borda na largura total */
     }
 
+    /* Estilo do botão */
     button {
+      width: 100%; /* Largura total do container */
       background-color: #8a7e72; /* Tom pastel de café suave */
       color: white;
       border: none;
       border-radius: 5px;
-      padding: 12px 20px;
+      padding: 12px;
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s;
-      width: 100%;
     }
 
     button:hover {
-      background-color: #6b5841;
+      background-color: #6b5841; /* Tom café escuro */
     }
 
-    .link {
-      margin-top: 15px;
-      color: #6b5841;
-      text-decoration: none;
+    /* Estilo de mensagem de erro */
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+
+    /* Media Queries para ajustar em telas menores */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem; /* Tamanho do título reduzido para dispositivos móveis */
+      }
+
+      button {
+        font-size: 0.9rem; /* Tamanho do botão reduzido para dispositivos móveis */
+      }
     }
   </style>
 </head>
@@ -71,30 +84,32 @@
 
   <div class="login-container">
     <h1>Login</h1>
-    <form onsubmit="return handleLogin();">
-      <input type="text" id="username" placeholder="Nome de Usuário" required>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Nome de usuário" required>
       <input type="password" id="password" placeholder="Senha" required>
       <button type="submit">Entrar</button>
     </form>
-    <a href="#" class="link">Criar conta</a>
+    <div class="error" id="error-message" style="display: none;"></div>
   </div>
 
   <script>
-    function handleLogin() {
-      // Aqui você pode implementar a lógica de autenticação
+    // Exemplo simples de validação do formulário
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault(); // Impede o envio do formulário
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-
-      // Simulação de login bem-sucedido
-      if (username === "usuario" && password === "senha") { // Substitua pelos valores corretos
-        window.location.href = "index.html"; // Redireciona para a página principal
-        return false; // Impede o envio do formulário
+      
+      // Aqui você pode adicionar sua lógica de autenticação
+      if (username !== 'admin' || password !== 'password') { // Exemplo simples de validação
+        document.getElementById('error-message').textContent = 'Usuário ou senha incorretos.';
+        document.getElementById('error-message').style.display = 'block';
       } else {
-        alert("Nome de usuário ou senha incorretos.");
-        return false; // Impede o envio do formulário
+        alert('Login bem-sucedido!');
+        // Redirecionar para outra página ou realizar outra ação
       }
-    }
+    });
   </script>
 
 </body>
 </html>
+
