@@ -188,15 +188,20 @@
       margin: 5px 0;
     }
   </style>
-  <script>
+    <script>
     // Verifica se o usuário está autenticado
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (!isAuthenticated) {
       // Redireciona para a página de login se não estiver autenticado
       window.location.href = 'login.html';
     }
-  </script>
 
+    // Função para fazer logout
+    function logout() {
+      localStorage.removeItem('isAuthenticated'); // Remove o estado de autenticação
+      window.location.href = 'login.html'; // Redireciona para a página de login
+    }
+  </script>
   <!-- Cabeçalho com GIF e imagem de fundo -->
   <div class="header">
     <h1>Innerverse</h1>
