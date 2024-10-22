@@ -99,17 +99,19 @@
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
       
-      // Aqui você pode adicionar sua lógica de autenticação
-      if (username !== 'admin' || password !== 'password') { // Exemplo simples de validação
+      // Validação das credenciais
+      if (username === 'admin' && password === 'password') { // Credenciais de admin
+        alert('Login bem-sucedido!');
+        // Aqui você pode redirecionar para a página principal ou executar outra ação
+        window.location.href = 'index.html'; // Ajuste para o caminho da sua página inicial
+      } else {
         document.getElementById('error-message').textContent = 'Usuário ou senha incorretos.';
         document.getElementById('error-message').style.display = 'block';
-      } else {
-        alert('Login bem-sucedido!');
-        // Redirecionar para outra página ou realizar outra ação
       }
     });
   </script>
 
 </body>
 </html>
+
 
