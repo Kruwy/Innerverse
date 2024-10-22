@@ -67,17 +67,6 @@
       color: red;
       margin-top: 10px;
     }
-
-    /* Media Queries para ajustar em telas menores */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5rem; /* Tamanho do título reduzido para dispositivos móveis */
-      }
-
-      button {
-        font-size: 0.9rem; /* Tamanho do botão reduzido para dispositivos móveis */
-      }
-    }
   </style>
 </head>
 <body>
@@ -93,25 +82,24 @@
   </div>
 
   <script>
-    // Exemplo simples de validação do formulário
+    // Lida com o envio do formulário
     document.getElementById('login-form').addEventListener('submit', function(e) {
       e.preventDefault(); // Impede o envio do formulário
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
       
-      // Validação das credenciais
-      if (username === 'admin' && password === 'password') { // Credenciais de admin
-        alert('Login bem-sucedido!');
-        // Aqui você pode redirecionar para a página principal ou executar outra ação
-        window.location.href = 'index.html'; // Ajuste para o caminho da sua página inicial
+      // Verifica credenciais (aqui você pode mudar para suas próprias credenciais)
+      if (username === 'admin' && password === 'password') {
+        localStorage.setItem('isAuthenticated', 'true'); // Define o estado de autenticação
+        alert('Login bem-sucedido!'); // Exibe mensagem de sucesso
+        window.location.href = 'index.html'; // Redireciona para a página principal
       } else {
-        document.getElementById('error-message').textContent = 'Usuário ou senha incorretos.';
-        document.getElementById('error-message').style.display = 'block';
+        document.getElementById('error-message').textContent = 'Usuário ou senha incorretos.'; // Mensagem de erro
+        document.getElementById('error-message').style.display = 'block'; // Mostra a mensagem de erro
       }
     });
   </script>
 
 </body>
 </html>
-
 
