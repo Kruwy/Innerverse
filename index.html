@@ -11,13 +11,15 @@
 
     /* Estilo do botão de logout */
     .logout-btn {
-      background-color: #8a7e72; /* Cor do botão */
+      background-color: #8a7e72;
       color: white;
       border: none;
       border-radius: 5px;
       padding: 10px 20px;
       cursor: pointer;
-      margin-top: 20px;
+      position: absolute;
+      top: 20px; /* Ajuste de posição para mover para cima */
+      right: 20px;
       z-index: 999;
     }
 
@@ -83,16 +85,40 @@
       color: #8a7e72; /* Tom pastel suave */
     }
 
-    /* Distribuição de conteúdo */
-    .container {
+     /* Dividir a página em duas colunas */
+     .main-content {
+      display: flex;
+      gap: 30px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Estilo da coluna esquerda (conteúdo principal) */
+    .left-column {
+      flex: 1;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
-      padding: 30px;
-      margin: 0 auto;
-      max-width: 1200px;
     }
 
+    .right-column {
+      flex: 0.5;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Estilo das imagens */
+    .right-column img {
+      width: 100%;
+      height: 853.27px;
+      object-fit: cover; /* Ajusta a imagem para cobrir o espaço sem distorcer */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+   
     /* Estilo dos cartões */
     .card {
       background-color: #fff;
@@ -212,53 +238,70 @@
     localStorage.removeItem('isAuthenticated'); // Remove o estado de autenticação
     window.location.href = 'login.html'; // Redireciona para a página de login
   }
-  </script>
+  
+// Array com as URLs das imagens
+const images = [
+  "Frase motivacional instagram minimalista aesthetic marrom.png",
+  "Post Instagram Saúde Mental Psicologia Terapia Frase Minimalista .png", // Adicione as URLs das imagens que deseja usar
+  "Post Instagram Frase Saúde Mental Terapia Minimalista Verde.png",
+  "Lembrete autocuidado motivacional delicado rosa e branco post de instagram.png", // Exemplo de mais uma imagem
+];
 
-  <!-- Container dos cartões -->
-  <div class="container">
-      
-    <!-- Cartão 6: Como me sinto hoje -->
-    <div class="card">
-      <h2>Como me sinto hoje</h2>
-      <p>Utilize esta ferramenta para registar rapidamente o seu estado emocional atual. Acompanhar como se sente ao longo do tempo pode ajudar a identificar padrões e temas na sua saúde mental.</p>
-      <button>Registar Sentimentos</button>
-    </div>
- 
-     <!-- Cartão 5: Diário -->
-    <div class="card">
-      <h2>Diário</h2>
-      <p>Mantenha um diário digital seguro para expressar seus pensamentos, sentimentos e reflexões diárias. O hábito de escrever pode ajudar a processar emoções e melhorar a clareza mental.</p>
-      <button>Escrever no Diário</button>
-    </div>
-    
-  <!-- Cartão 4: Exercícios de Mindfulness -->
-    <div class="card">
-      <h2>Exercícios de Mindfulness</h2>
-      <p>Pratique técnicas de relaxamento guiadas para melhorar seu bem-estar.</p>
-      <button>Começar Agora</button>
+let currentIndex = 0;
+
+// Função para mudar a imagem a cada 2 minutos
+function changeImage() {
+  const imgElement = document.getElementById('dynamic-image');
+  currentIndex = (currentIndex + 1) % images.length; // Atualiza o índice
+  imgElement.src = images[currentIndex]; // Muda a imagem
+}
+
+// Inicia a mudança de imagem a cada 2 minutos (120000 ms)
+setInterval(changeImage, 120000); // 120000 ms = 2 minutos
+</script>
+
+   <!-- Conteúdo Principal -->
+   <div class="main-content">
+    <!-- Coluna esquerda: Cartões -->
+    <div class="left-column">
+      <div class="card">
+        <h2>Como me sinto hoje</h2>
+        <p>Registre seu estado emocional atual para monitorar seu bem-estar ao longo do tempo.</p>
+        <button>Registar Sentimentos</button>
+      </div>
+      <div class="card">
+        <h2>Diário</h2>
+        <p>Mantenha um diário digital seguro para expressar seus pensamentos e reflexões diárias.</p>
+        <button>Escrever no Diário</button>
+      </div>
+      <div class="card">
+        <h2>Exercícios de Mindfulness</h2>
+        <p>Pratique técnicas de relaxamento guiadas para melhorar seu bem-estar.</p>
+        <button>Começar Agora</button>
+      </div>
+      <div class="card">
+        <h2>Terapia em Grupo</h2>
+        <p>Participe de sessões de terapia em grupo com pessoas que compartilham experiências semelhantes.</p>
+        <button>Agendar Sessão</button>
+      </div>
+      <div class="card">
+        <h2>Consulta com AI</h2>
+        <p>Converse com nosso assistente AI para suporte emocional em tempo real.</p>
+        <button>Iniciar Consulta com AI</button>
+      </div>
+      <div class="card">
+        <h2>Consulta com Psicólogo</h2>
+        <p>Conecte-se com psicólogos licenciados para consultas online.</p>
+        <button>Agendar Consulta</button>
+      </div>
     </div>
 
-<!-- Cartão 1: Terapia em Grupo -->
-    <div class="card">
-      <h2>Terapia em Grupo</h2>
-      <p>Participe de sessões de terapia em grupo com outras pessoas que compartilham experiências semelhantes.</p>
-      <button>Agendar Sessão</button>
-    </div>
-
-    <!-- Cartão 2: Consulta com AI -->
-    <div class="card">
-      <h2>Consulta com AI</h2>
-      <p>Converse com nosso assistente AI para obter aconselhamento rápido e suporte emocional em tempo real.</p>
-      <button>Iniciar Consulta com AI</button>
-    </div>
-
-    <!-- Cartão 3: Consulta com Psicólogo -->
-    <div class="card">
-      <h2>Consulta com Psicólogo</h2>
-      <p>Conecte-se com psicólogos licenciados para consultas individuais online.</p>
-      <button>Agendar Consulta</button>
+    <!-- Coluna direita: Galeria de imagens -->
+    <div class="right-column">
+      <img id="dynamic-image" src="Frase motivacional instagram minimalista aesthetic marrom.png" alt="Frases motivacionais">
     </div>
   </div>
+
   <!-- Seção de ética e RGPD -->
   <div class="rgpd">
     <h2>Ética e Proteção de Dados (RGPD)</h2>
